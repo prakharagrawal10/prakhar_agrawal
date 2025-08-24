@@ -6,24 +6,42 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { projects as myProjects } from "../../data/site";
+import Image from "next/image";
 import "./projects.css";
 
-function Card({ i, title, description, url, color, progress, range, targetScale, githubLink, liveLink }) {
-  const container = useRef(null);
-  const scale = useTransform(progress, range, [1, targetScale]);
+interface CardProps {
+  i: number;
+  title: string;
+  description: string;
+  url: string;
+  color: string;
+  progress: any;
+  githubLink?: string;
+  liveLink?: string;
+}
+
+function Card({ i, title, description, url, color, progress, githubLink, liveLink }: CardProps) {
+  // Each card will animate scale and opacity based on scroll progress
+  const start = i / myProjects.length;
+  const end = (i + 1) / myProjects.length;
+  const scale = useTransform(progress, [start, end], [1, 0.8]);
+  const opacity = useTransform(progress, [start, end], [1, 0.3]);
   return (
-    <div ref={container} className="project-container">
+    <div className="project-container" style={{ position: 'sticky', top: 0, zIndex: myProjects.length - i }}>
       <motion.div
-        style={{ scale, top: `calc(-5vh + ${i * 25}px)`, transform: `scale(var(--project-scale, 1))`, marginTop: "var(--project-margin, 0)" }}
+        style={{ scale, opacity }}
         className="project-card"
         whileHover={{ y: -8, transition: { duration: 0.3 } }}
       >
         <div className="project-image-section">
-          <img
+          <Image
             src={url}
             alt={title}
             className="project-image"
             style={{ backgroundColor: color }}
+            width={800}
+            height={400}
+            priority={i === 0}
           />
           <div
             className="project-overlay"
@@ -80,7 +98,6 @@ export default function Projects() {
     <main className="projects-main" ref={container}>
       <section className="projects-section">
         {myProjects.map((project, i) => {
-          const targetScale = 1 - (myProjects.length - i) * 0.05;
           const color = colorList[i % colorList.length];
           const url = project.image.startsWith("/") ? project.image : `/project-screenshots/${project.image}`;
           return (
@@ -92,8 +109,6 @@ export default function Projects() {
               color={color}
               description={project.description}
               progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScale}
               githubLink={project.github}
               liveLink={project.demo}
             />

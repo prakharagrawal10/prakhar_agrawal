@@ -5,7 +5,7 @@ export const profile = {
   name: "Prakhar Agrawal",
   tagline: "Full-Stack Developer | AI/ML Enthusiast",
   bio: "Computer Science and Engineering student with hands-on experience in AI/ML and full-stack web development. Eager to contribute technical skills and grow in a dynamic, innovation-driven environment.",
-  avatar: "/avatar.png",
+  avatar: "/avatar.jpg",
   resume: "/resume.pdf",
   github: "https://github.com/prakhargarwal",
   linkedin: "https://linkedin.com/in/prakhargarwal",
@@ -14,26 +14,46 @@ export const profile = {
 };
 
 export const skills = [
-  { name: "Python", icon: "/skills/python.svg" },
-  { name: "C", icon: "/skills/c.svg" },
-  { name: "C++", icon: "/skills/cpp.svg" },
-  { name: "Java", icon: "/skills/java.svg" },
-  { name: "JavaScript", icon: "/skills/javascript.svg" },
-  { name: "TypeScript", icon: "/skills/typescript.svg" },
-  { name: "React.js", icon: "/skills/react.svg" },
-  { name: "Node.js", icon: "/skills/nodejs.svg" },
-  { name: "Express.js", icon: "/skills/express.svg" },
-  { name: "MongoDB", icon: "/skills/mongodb.svg" },
-  { name: "MySQL", icon: "/skills/mysql.svg" },
-  { name: "Redis", icon: "/skills/redis.svg" },
-  { name: "TensorFlow", icon: "/skills/tensorflow.svg" },
-  { name: "OpenCV", icon: "/skills/opencv.svg" },
-  { name: "Pandas", icon: "/skills/pandas.svg" },
-  { name: "Matplotlib", icon: "/skills/matplotlib.svg" },
-  { name: "Keras", icon: "/skills/keras.svg" },
-  { name: "Flask", icon: "/skills/flask.svg" },
-  { name: "HTML", icon: "/skills/html.svg" },
-  { name: "CSS", icon: "/skills/css.svg" }
+  {
+    category: "Programming Languages",
+    items: [
+      { name: "Python", icon: "/skills/python.svg" },
+      { name: "C", icon: "/skills/c.svg" },
+      { name: "C++", icon: "/skills/cpp.svg" },
+      { name: "Java", icon: "/skills/java.svg" },
+      { name: "JavaScript", icon: "/skills/javascript.svg" },
+      { name: "TypeScript", icon: "/skills/typescript.svg" }
+    ]
+  },
+  {
+    category: "Web Development",
+    items: [
+      { name: "React.js", icon: "/skills/react.svg" },
+      { name: "Node.js", icon: "/skills/nodejs.svg" },
+      { name: "Express.js", icon: "/skills/express.svg" },
+      { name: "HTML", icon: "/skills/html.svg" },
+      { name: "CSS", icon: "/skills/css.svg" }
+    ]
+  },
+  {
+    category: "Databases & Cloud",
+    items: [
+      { name: "MongoDB", icon: "/skills/mongodb.svg" },
+      { name: "MySQL", icon: "/skills/mysql.svg" },
+      { name: "Redis", icon: "/skills/redis.svg" }
+    ]
+  },
+  {
+    category: "Machine Learning & Data Science",
+    items: [
+      { name: "TensorFlow", icon: "/skills/tensorflow.svg" },
+      { name: "OpenCV", icon: "/skills/opencv.svg" },
+      { name: "Pandas", icon: "/skills/pandas.svg" },
+      { name: "Matplotlib", icon: "/skills/matplotlib.svg" },
+      { name: "Keras", icon: "/skills/keras.svg" },
+      { name: "Flask", icon: "/skills/flask.svg" }
+    ]
+  }
 ];
 
 export const projects = [
@@ -51,7 +71,7 @@ export const projects = [
     tech: ["Python", "Flask", "TensorFlow", "HTML", "CSS", "JavaScript"],
     github: "",
     demo: "",
-    image: "/project-screenshots/farmwise.png"
+    image: "/project-screenshots/farmwise.jpg"
   },
   {
     title: "AI-ML Based Real-time Age and Gender Prediction",

@@ -1,95 +1,72 @@
+
 import Image from "next/image";
-import styles from "./page.module.css";
+import { profile } from "../data/site";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <main style={{
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "linear-gradient(135deg, #232526 0%, #414345 100%)"
+    }}>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "1.5rem",
+        padding: "2rem 1rem",
+        borderRadius: "1.5rem",
+        background: "rgba(255,255,255,0.05)",
+        boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+        backdropFilter: "blur(8px)",
+        border: "1px solid rgba(255,255,255,0.18)"
+      }}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src={profile.avatar}
+          alt={profile.name}
+          width={120}
+          height={120}
+          style={{ borderRadius: "50%", boxShadow: "0 4px 24px 0 rgba(0,0,0,0.2)" }}
         />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <h1 style={{ fontSize: "2.5rem", fontWeight: 700, color: "#fff", textAlign: "center" }}>{profile.name}</h1>
+        <h2 style={{ fontSize: "1.25rem", fontWeight: 400, color: "#e0e0e0", textAlign: "center" }}>{profile.tagline}</h2>
+        <p style={{ maxWidth: 480, color: "#d1d5db", textAlign: "center" }}>{profile.bio}</p>
+        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <a href={profile.resume} target="_blank" rel="noopener" style={{
+            padding: "0.75rem 1.5rem",
+            borderRadius: "999px",
+            background: "linear-gradient(90deg,#6EE7B7,#3B82F6)",
+            color: "#fff",
+            fontWeight: 600,
+            textDecoration: "none",
+            boxShadow: "0 2px 8px 0 rgba(59,130,246,0.15)",
+            transition: "transform 0.2s"
+          }}>Resume</a>
+          <a href={profile.github} target="_blank" rel="noopener" style={{
+            padding: "0.75rem 1.5rem",
+            borderRadius: "999px",
+            background: "linear-gradient(90deg,#6366F1,#8B5CF6)",
+            color: "#fff",
+            fontWeight: 600,
+            textDecoration: "none",
+            boxShadow: "0 2px 8px 0 rgba(99,102,241,0.15)",
+            transition: "transform 0.2s"
+          }}>GitHub</a>
+          <a href={profile.linkedin} target="_blank" rel="noopener" style={{
+            padding: "0.75rem 1.5rem",
+            borderRadius: "999px",
+            background: "linear-gradient(90deg,#06b6d4,#3b82f6)",
+            color: "#fff",
+            fontWeight: 600,
+            textDecoration: "none",
+            boxShadow: "0 2px 8px 0 rgba(6,182,212,0.15)",
+            transition: "transform 0.2s"
+          }}>LinkedIn</a>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }
